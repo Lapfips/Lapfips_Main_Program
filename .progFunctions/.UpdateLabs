@@ -5,5 +5,5 @@ repositories_lab=(ProjetLabo1405 Projet_Labo_Dev Projet_Labo_1)
 
 for repo in "${repositories_lab[@]}"; do
     echo "updating $repo"
-    ./.progFunctions/.UpdateRepo "Lapfips/$repo" "$github"
+    ./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateRepo "Lapfips/$repo" "$github"
 done

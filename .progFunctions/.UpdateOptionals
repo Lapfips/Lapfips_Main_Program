@@ -5,5 +5,5 @@ repositories_optional=(moi Lapfips.github.io PortoBlogProjectMetallica lapfips.g
 
 for repo in "${repositories_optional[@]}"; do
     echo "updating $repo"
-    ./.progFunctions/.UpdateRepo "Lapfips/$repo" "$github"
+    ./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateRepo "Lapfips/$repo" "$github"
 done

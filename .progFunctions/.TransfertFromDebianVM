@@ -17,4 +17,4 @@ else
     TYPE="f"
 fi
 
-./.progFunctions/.Transfert $TYPE user 192.168.145.139 "/home/user/$VM" "/c/Users/fargi/$LOC"
+./.progFunctions/.Transfert $TYPE user 192.168.145.139 "/home/user/$VM" "$USERPROFILE/$LOC"

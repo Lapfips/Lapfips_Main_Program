@@ -1,9 +1,9 @@
 #!/bin/bash
 
-repo_file_lab="./.progFunctions/.UpdateLabs"
-repo_file_org="./.progFunctions/.UpdateOrganizations"
-repo_file_optional="./.progFunctions/.UpdateOptionals"
-repo_file_personal="./.progFunctions/.UpdatePersonals"
+repo_file_lab="./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateLabs"
+repo_file_org="./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateOrganizations"
+repo_file_optional="./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateOptionals"
+repo_file_personal="./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdatePersonals"
 
 if [[ "$#" -lt 2 ]]; then
     echo -e "\nPlease enter the following information(s): \n"
