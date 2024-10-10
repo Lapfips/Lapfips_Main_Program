@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [ "$#" -lt 5 ]; then
+    echo -e "\nPlease enter the following information(s): \n"
+    [ -z "$1" ] && read -p "Type r for repository or f for file: " TYPE || TYPE=$1
+    [ -z "$2" ] && read -p "Your ID: " ID || ID=$2
+    [ -z "$3" ] && read -p "Your IP: " IP || IP=$3
+    [ -z "$4" ] && read -p "The VM file current location: " VM || VM=$4
+    [ -z "$5" ] && read -p "The location you want to copy it: " LOC || LOC=$5
+else
+    TYPE=$1
+    ID=$2
+    IP=$3
+    VM=$4
+    LOC=$5
+fi
+
+if [ "$TYPE" == "r" ]; then
+    TYPE="-r"
+else
+    TYPE=""
+fi
+
+echo -e "\nTransfert...\n"
+
+scp $TYPE $ID@$IP:$VM $LOC
+
+echo -e "\nYour data have been transfered"

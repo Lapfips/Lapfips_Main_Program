@@ -1,0 +1,38 @@
+#!/bin/bash
+
+path="GitRepositories"
+
+if [[ -z "$1" ]]; then
+    echo
+    read -p "Which type of update do you want to do ? :  " CHOICE
+else
+    CHOICE=$1
+fi
+
+cd
+if [[ ! -d $path ]]; then
+    mkdir -p $path
+fi
+
+case $CHOICE in
+    a) FUNC=All ;;
+    o) FUNC=Organizations ;;
+    p) FUNC=Personals ;;
+    op) FUNC=Optionals ;;
+    help)
+        echo -e "\nChoose a parameter between :\n\na   ->  Update all repositories\np   ->  Update personals repositories\no   ->  Update organizations repositories\nop  ->  Update optionals repositories"
+        exit 0
+        ;;
+    *)
+        echo -e "\nInvalid parameter. Try again"
+        exit 1
+        ;;
+esac
+
+if [[ -f "./.progFunctions/.Update$FUNC" ]]; then
+    echo
+    ./.progFunctions/.Update$FUNC
+else
+    echo -e "\nFunction script ./.progFunctions/.Update$FUNC not found."
+    exit 1
+fi

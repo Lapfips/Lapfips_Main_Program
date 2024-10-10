@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ "$#" -lt 3 ]; then
+    echo -e "\nPlease enter the following information: \n"
+    [ -z "$1" ] && read -p "Type r for repository or f for file: " TYPE || TYPE=$1
+    [ -z "$2" ] && read -p "The VM file current location: " VM || VM=$2
+    [ -z "$3" ] && read -p "The location you want to copy it: " LOC || LOC=$3
+else
+    TYPE=$1
+    VM=$2
+    LOC=$3
+fi
+
+if [ "$TYPE" == "r" ]; then
+    TYPE="r"
+else
+    TYPE="f"
+fi
+
+./.progFunctions/.Transfert $TYPE user 192.168.145.139 "/home/user/$VM" "/c/Users/fargi/$LOC"

@@ -1,0 +1,50 @@
+#!/bin/bash
+
+cd GitRepositories/
+
+repo_path=$1
+repo_url=$2
+repo_name=$(basename "$repo_path")
+
+if [[ ! -d $repo_name ]]; then
+    git clone "$repo_url/$repo_path.git"
+fi
+
+cd "$repo_name" || exit
+
+read -p "Enter the branch you want to work on (default is 'main'): " branch
+branch=${branch:-main}
+
+git checkout "$branch" || { echo "Branch '$branch' does not exist."; exit 1; }
+
+git fetch origin
+
+local_commit=$(git rev-parse "$branch")
+remote_commit=$(git rev-parse "origin/$branch")
+if [[ "$local_commit" != "$remote_commit" ]]; then
+    echo "Your local branch is ahead of the remote branch."
+else
+    echo "Your local branch is up to date with the remote branch."
+fi
+
+echo ""
+echo "Changes since the last commit:"
+git status --porcelain
+echo ""
+
+changes=$(git status --porcelain)
+if [[ -n $changes ]]; then
+    read -p "Enter your update message for the $repo_name repository: " MESS
+    git add .
+    git commit -m "Update: $MESS"
+    
+    git pull --rebase origin "$branch"
+    
+    git push origin "$branch"
+    echo "Changes pushed to $branch."
+else
+    echo "No changes to commit."
+fi
+
+echo ""
+cd 

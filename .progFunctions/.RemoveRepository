@@ -1,0 +1,42 @@
+#!/bin/bash
+
+repo_file_lab="./.progFunctions/.UpdateLabs"
+repo_file_org="./.progFunctions/.UpdateOrganizations"
+repo_file_optional="./.progFunctions/.UpdateOptionals"
+repo_file_personal="./.progFunctions/.UpdatePersonals"
+
+if [[ "$#" -lt 2 ]]; then
+    echo -e "\nPlease enter the following information(s): \n"
+    [ -z "$1" ] && read -p "Enter the repository category: " CAT
+    [ -z "$2" ] && read -p "Enter the repository name: " NAME
+else
+    CAT=$1
+    NAME=$2
+fi
+
+case $CAT in
+    p) CAT="personal" repo_file=$repo_file_personal ;;
+    o) CAT="org" repo_file=$repo_file_org ;;
+    op) CAT="optional" repo_file=$repo_file_optional ;;
+    l) CAT="lab" repo_file=$repo_file_lab ;;
+    help)
+        echo -e "\nChoose a parameter between:\n\np   ->  Personal repository\no   ->  Organizational repository\nop  ->  Optional repository\nl   ->  Laboratory repository"
+        exit 0
+        ;;
+    *)
+        echo -e "\nInvalid parameter. Try again"
+        exit 1
+        ;;
+esac
+
+if [[ ! -f "$repo_file" ]]; then
+    echo -e "\nError: The file for category '$CAT' does not exist."
+    exit 1
+fi
+
+if grep -q "$NAME" "$repo_file"; then
+    sed -i "/repositories_${CAT}=(/ s/ $NAME//" "$repo_file"
+    echo -e "\nRepository '$NAME' removed from $CAT."
+else
+    echo -e "\nRepository '$NAME' does not exist in $CAT."
+fi
