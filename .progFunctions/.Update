@@ -29,10 +29,10 @@ case $CHOICE in
         ;;
 esac
 
-if [[ -f "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.Update$FUNC" ]]; then
+if [[ -f "GitRepositories/Lapfips_Main_Program/.progFunctions/.Update$FUNC" ]]; then
     echo
-    ./.progFunctions/.Update$FUNC
+    ./GitRepositories/Lapfips_Main_Program/.progFunctions/.Update$FUNC
 else
-    echo -e "\nFunction script $USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.Update$FUNC not found."
+    echo -e "\nFunction script GitRepositories/Lapfips_Main_Program/.progFunctions/.Update$FUNC not found."
     exit 1
 fi

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdatePersonals
-./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateOrganizations
-./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateOptionals
-./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateLabs
+./GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdatePersonals
+./GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateOrganizations
+./GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateOptionals
+./GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateLabs
