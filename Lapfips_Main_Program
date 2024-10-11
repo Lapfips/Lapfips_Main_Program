@@ -24,13 +24,7 @@ case $FUNC in
         ;;
 esac
 
-<<<<<<< HEAD
 function_path=$(cygpath -u "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.$FUNC")
-=======
-function_path="C:/Users/fargi/GitRepositories/Lapfips_Main_Program/.progFunctions/.$FUNC"
-
-echo $function_path
->>>>>>> 5b61670dfc9c5a42facaa475664ebd9e2d589be0
 
 if [[ -f "$function_path" ]]; then
     bash "$function_path" $2 $3 $4 $5 $6 $7 $8 $9

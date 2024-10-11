@@ -6,17 +6,14 @@ repo_path=$1
 repo_url=$2
 repo_name=$(basename "$repo_path")
 
-# Cloner le dépôt si le dossier n'existe pas
 if [[ ! -d $repo_name ]]; then
     git clone "$repo_url/$repo_path.git"
 fi
 
 cd "$repo_name" || exit
 
-# Récupérer les dernières modifications et mettre à jour la branche actuelle
 git pull origin $(git branch --show-current)
 
-# Pousser les changements locaux s'il y en a
 if [[ -n $(git status --porcelain) ]]; then
     git add .
     git commit -m "Auto-update"

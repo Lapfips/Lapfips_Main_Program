@@ -29,7 +29,6 @@ case $CHOICE in
         ;;
 esac
 
-<<<<<<< HEAD
 repo_dir=$(echo "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions" | sed 's/\\/\//g' | sed 's/C:/\/c/')
 
 if [[ -f "$repo_dir/.Update$FUNC" ]]; then
@@ -37,12 +36,5 @@ if [[ -f "$repo_dir/.Update$FUNC" ]]; then
     bash "$repo_dir/.Update$FUNC"
 else
     echo -e "\nFunction script $repo_dir/.Update$FUNC not found."
-=======
-if [[ -f "GitRepositories/Lapfips_Main_Program/.progFunctions/.Update$FUNC" ]]; then
-    echo
-    ./GitRepositories/Lapfips_Main_Program/.progFunctions/.Update$FUNC
-else
-    echo -e "\nFunction script GitRepositories/Lapfips_Main_Program/.progFunctions/.Update$FUNC not found."
->>>>>>> 5b61670dfc9c5a42facaa475664ebd9e2d589be0
     exit 1
 fi
