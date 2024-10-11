@@ -5,6 +5,10 @@ repositories_optional=(moi Lapfips.github.io PortoBlogProjectMetallica lapfips.g
 
 for repo in "${repositories_optional[@]}"; do
     echo "updating $repo"
+<<<<<<< HEAD
     repo_dir=$(echo "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions" | sed 's/\\/\//g' | sed 's/C:/\/c/')
     $repo_dir/.UpdateRepo "Lapfips/$repo" "$github"
+=======
+    ./GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateRepo "Lapfips/$repo" "$github"
+>>>>>>> 5b61670dfc9c5a42facaa475664ebd9e2d589be0
 done

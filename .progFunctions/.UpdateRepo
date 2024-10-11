@@ -13,34 +13,14 @@ fi
 
 cd "$repo_name" || exit
 
-# S'assurer d'être sur la bonne branche (ici, on reste sur la branche actuelle)
-branch=$(git branch --show-current)
+# Récupérer les dernières modifications et mettre à jour la branche actuelle
+git pull origin $(git branch --show-current)
 
-# Récupérer les dernières modifications de la branche actuelle
-git fetch origin
-
-# Comparer les commits locaux et distants
-local_commit=$(git rev-parse "$branch")
-remote_commit=$(git rev-parse "origin/$branch")
-
-# Vérifier s'il y a des modifications distantes à récupérer
-if [[ "$local_commit" != "$remote_commit" ]]; then
-    echo "Pulling the latest changes from the remote branch..."
-    git pull --rebase origin "$branch"
-else
-    echo "Your local branch is up to date with the remote branch."
-fi
-
-# Vérifier les changements locaux non commis
-changes=$(git status --porcelain)
-
-if [[ -n $changes ]]; then
-    echo "Pushing local changes..."
+# Pousser les changements locaux s'il y en a
+if [[ -n $(git status --porcelain) ]]; then
     git add .
     git commit -m "Auto-update"
-    git push origin "$branch"
-else
-    echo "No local changes to push."
+    git push origin $(git branch --show-current)
 fi
 
 cd
