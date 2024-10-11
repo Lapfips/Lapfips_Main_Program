@@ -17,4 +17,6 @@ else
     TYPE="f"
 fi
 
-./.progFunctions/.Transfert $TYPE user 192.168.145.139 "/home/user/$VM" "$USERPROFILE/$LOC"
+repo_dir="$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions"
+
+./$repo_dir/.Transfert $TYPE user 192.168.145.139 "/home/user/$VM" "$USERPROFILE/$LOC"

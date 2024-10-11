@@ -1,24 +1,25 @@
 #!/bin/bash
 
-repo_file_lab="./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateLabs"
-repo_file_org="./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateOrganizations"
-repo_file_optional="./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateOptionals"
-repo_file_personal="./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdatePersonals"
+repo_dir="$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions"
+repo_file_lab="$repo_dir/.UpdateLabs"
+repo_file_org="$repo_dir/.UpdateOrganizations"
+repo_file_optional="$repo_dir/.UpdateOptionals"
+repo_file_personal="$repo_dir/.UpdatePersonals"
 
 if [[ "$#" -lt 2 ]]; then
     echo -e "\nPlease enter the following information(s): \n"
     [ -z "$1" ] && read -p "Enter the repository category: " CAT
     [ -z "$2" ] && read -p "Enter the repository name: " NAME
 else
-    CAT=$1
-    NAME=$2
+    CAT="$1"
+    NAME="$2"
 fi
 
 case $CAT in
-    p) CAT="personal" repo_file=$repo_file_personal ;;
-    o) CAT="org" repo_file=$repo_file_org ;;
-    op) CAT="optional" repo_file=$repo_file_optional ;;
-    l) CAT="lab" repo_file=$repo_file_lab ;;
+    p) CAT="personal"; repo_file="$repo_file_personal";;
+    o) CAT="org"; repo_file="$repo_file_org";;
+    op) CAT="optional"; repo_file="$repo_file_optional";;
+    l) CAT="lab"; repo_file="$repo_file_lab";;
     help)
         echo -e "\nChoose a parameter between:\n\np   ->  Add a personal repository\no   ->  Add an organizational repository\nop  ->  Add an optional repository\nl   ->  Add a laboratory project"
         exit 0

@@ -1,6 +1,8 @@
 #!/bin/bash
 
-./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdatePersonals
-./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateOrganizations
-./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateOptionals
-./$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.UpdateLabs
+repo_dir=$(echo "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions" | sed 's/\\/\//g' | sed 's/C:/\/c/')
+
+$repo_dir/.UpdatePersonals
+$repo_dir/.UpdateOrganizations
+$repo_dir/.UpdateOptionals
+$repo_dir/.UpdateLabs

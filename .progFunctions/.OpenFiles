@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ -z $@ ]]; then
+if [[ $# -eq 0 ]]; then
     echo "Usage: openfile <extension1> <extension2> ..."
     exit 1
 fi
@@ -8,7 +8,7 @@ fi
 files=""
 for ext in "$@"; do
     found_files=$(find . -type f -name "*.$ext" 2>/dev/null)
-    
+
     if [[ -n $found_files ]]; then
         files+="$found_files"$'\n'
     else
@@ -17,7 +17,7 @@ for ext in "$@"; do
 done
 
 if [[ -n $files ]]; then
-    code $files
+    code "$files"
 else
     echo "No files found with the specified extensions."
 fi

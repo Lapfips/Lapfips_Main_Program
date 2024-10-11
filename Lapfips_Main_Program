@@ -24,7 +24,7 @@ case $FUNC in
         ;;
 esac
 
-function_path="$USERPROFILE/GitRepoitories/Lapfips_Main_Program/.progFunctions/.$FUNC"
+function_path=$(cygpath -u "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.$FUNC")
 
 if [[ -f "$function_path" ]]; then
     bash "$function_path" $2 $3 $4 $5 $6 $7 $8 $9
@@ -32,3 +32,4 @@ else
     echo -e "\nFunction script $function_path not found."
     exit 1
 fi
+
