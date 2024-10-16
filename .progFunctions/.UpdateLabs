@@ -1,7 +1,7 @@
 #!/bin/bash
 
 github="git@github.com:"
-repositories_lab=(ProjetLabo1405 Projet_Labo_Dev Projet_Labo_1)
+repositories_lab=(ProjetLabo1405 Projet_Labo_Dev)
 
 for repo in "${repositories_lab[@]}"; do
     echo "updating $repo"
