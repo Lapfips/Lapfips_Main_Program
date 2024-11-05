@@ -7,17 +7,16 @@ fi
 
 files=""
 for ext in "$@"; do
-    found_files=$(find . -type f -name "*.$ext" 2>/dev/null)
-
+    found_files=$(find . -type f \( -name "*$ext" -o -name ".*$ext" \) 2>/dev/null)
     if [[ -n $found_files ]]; then
         files+="$found_files"$'\n'
     else
-        echo "No files found with extension: .$ext"
+        echo "No files found with : $ext"
     fi
 done
 
 if [[ -n $files ]]; then
     code "$files"
 else
-    echo "No files found with the specified extensions."
+    echo "No files found with the specified patern."
 fi
