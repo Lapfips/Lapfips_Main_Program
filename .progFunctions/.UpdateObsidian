@@ -8,6 +8,7 @@ if [[ -d "$repo_dir" ]]; then
     if [[ -d "$repo_exit" ]]; then
         mkdir -p "$repo_exit"
     fi
+    rm -rf "$repo_exit"*
     cp -r "$repo_dir"* "$repo_exit"
     $repo_update/.UpdatePersonals
 else
