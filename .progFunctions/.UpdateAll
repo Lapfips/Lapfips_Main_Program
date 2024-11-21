@@ -2,6 +2,7 @@
 
 repo_dir=$(echo "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions" | sed 's/\\/\//g' | sed 's/C:/\/c/')
 
+$read_dir/.UpdateObsidian
 $repo_dir/.UpdatePersonals
 $repo_dir/.UpdateOrganizations
 $repo_dir/.UpdateOptionals

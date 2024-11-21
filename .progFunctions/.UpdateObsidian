@@ -1,0 +1,15 @@
+#!/bin/bash
+
+repo_dir=$(echo "C:\Onedrive\Documents\Obsidian Vault" | sed 's/\\/\//g' | sed 's/C:/\/c/')
+repo_exit=$(echo "$USERPROFILE/GitRepositories/Code_Perso_Ethan/Obsidian/" | sed 's/\\/\//g' | sed 's/C:/\/c/')
+repo_update=$(echo "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions" | sed 's/\\/\//g' | sed 's/C:/\/c/')
+
+if [[ -d "$repo_dir" ]]; then
+    if [[ -d "$repo_exit" ]]; then
+        mkdir -p "$repo_exit"
+    fi
+    cp -r "$repo_dir"* "$repo_exit"
+    $repo_update/.UpdatePersonals
+else
+    echo "No such repo for obsidian"
+fi
