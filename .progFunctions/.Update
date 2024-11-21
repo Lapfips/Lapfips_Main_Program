@@ -15,14 +15,14 @@ if [[ ! -d $path ]]; then
 fi
 
 case $CHOICE in
-    a) FUNC=All ;;
-    o) FUNC=Organizations ;;
-    l) FUNC=Labs ;;
-    p) FUNC=Personals ;;
-    op) FUNC=Optionals ;;
-    ob) FUNC=Obsidian ;;
-    help)
-        echo -e "\nChoose a parameter between :\n\na   ->  Update all repositories\np   ->  Update personals repositories\no   ->  Update organizations repositories\nl   ->  Update laboratories repositories\nop  ->  Update optionals repositories\nob  ->  Update obsidian database"
+    -a) FUNC=All ;;
+    -o) FUNC=Organizations ;;
+    -l) FUNC=Labs ;;
+    -p) FUNC=Personals ;;
+    -op) FUNC=Optionals ;;
+    -ob) FUNC=Obsidian ;;
+    -help)
+        echo -e "\nChoose a parameter between :\n\n-a   ->  Update all repositories\n-p   ->  Update personals repositories\n-o   ->  Update organizations repositories\n-l   ->  Update laboratories repositories\n-op  ->  Update optionals repositories\n-ob  ->  Update obsidian database"
         exit 0
         ;;
     *)

@@ -6,22 +6,27 @@ repo_file_org="$repo_dir/.UpdateOrganizations"
 repo_file_optional="$repo_dir/.UpdateOptionals"
 repo_file_personal="$repo_dir/.UpdatePersonals"
 
-if [[ "$#" -lt 2 ]]; then
-    echo -e "\nPlease enter the following information(s): \n"
-    [ -z "$1" ] && read -p "Enter the repository category: " CAT
-    [ -z "$2" ] && read -p "Enter the repository name: " NAME
+if [[ "$1" = "-help" ]]; then
+    CAT=$1
+    NAME=""
 else
-    CAT="$1"
-    NAME="$2"
+    if [[ "$#" -lt 2 ]]; then
+        echo -e "\nPlease enter the following information(s): \n"
+        [ -z "$1" ] && read -p "Enter the repository category: " CAT
+        [ -z "$2" ] && read -p "Enter the repository name: " NAME
+    else
+        CAT="$1"
+        NAME="$2"
+    fi
 fi
 
 case $CAT in
-    p) CAT="personal"; repo_file="$repo_file_personal";;
-    o) CAT="org"; repo_file="$repo_file_org";;
-    op) CAT="optional"; repo_file="$repo_file_optional";;
-    l) CAT="lab"; repo_file="$repo_file_lab";;
-    help)
-        echo -e "\nChoose a parameter between:\n\np   ->  Add a personal repository\no   ->  Add an organizational repository\nop  ->  Add an optional repository\nl   ->  Add a laboratory project"
+    -p) CAT="personal"; repo_file="$repo_file_personal";;
+    -o) CAT="org"; repo_file="$repo_file_org";;
+    -op) CAT="optional"; repo_file="$repo_file_optional";;
+    -l) CAT="lab"; repo_file="$repo_file_lab";;
+    -help)
+        echo -e "\nChoose a parameter between:\n\n-p   ->  Add a personal repository\n-o   ->  Add an organizational repository\n-op  ->  Add an optional repository\n-l   ->  Add a laboratory project"
         exit 0
         ;;
     *)

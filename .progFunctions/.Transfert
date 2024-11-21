@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ $1 = "-help" ]; then
+    echo -e "\nUsage prog -trf <type> <id> <ip> <vm_file> <loc_file>"
+    exit 0
+fi
+
 if [ "$#" -lt 5 ]; then
     echo -e "\nPlease enter the following information(s): \n"
     [ -z "$1" ] && read -p "Type r for repository or f for file: " TYPE || TYPE=$1
