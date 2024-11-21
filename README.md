@@ -35,7 +35,8 @@ To use the program, ensure you have the following:
 Clone the repository:
 
 ```shell
-git clone https://github.com/Lapfips/Lapfips_Main_Program.git cd Lapfips_Main_Program chmod +x program
+git clone https://github.com/Lapfips/Lapfips_Main_Program.git
+cd Lapfips_Main_Program chmod +x program
 ```
 
 ## Usage
@@ -48,6 +49,7 @@ git clone https://github.com/Lapfips/Lapfips_Main_Program.git cd Lapfips_Main_Pr
 
 ### Global Options
 
+<div sytle="backgroud-color: white">
 | Command  | Description                                      |
 | -------- | ------------------------------------------------ |
 | `-upt`   | Update repositories, packages, or other systems. |
@@ -57,7 +59,7 @@ git clone https://github.com/Lapfips/Lapfips_Main_Program.git cd Lapfips_Main_Pr
 | `-rm`    | Remove an existing repository or file.           |
 | `-open`  | Open files or repositories.                      |
 | `-help`  | Display help for commands or options.            |
-
+</div>
 ## Detailed Command Options
 
 ### `-upt`
