@@ -17,11 +17,9 @@ git pull
 
 if [[ -n $(git status --porcelain) ]]; then
     git add .
-    echo $MESS
     if [[ $MESS != "auto" ]]; then
         read -p "Your commit message for $repo_name repository : " MESS
     fi
-    echo $MESS
     git commit -m "$MESS"
     git push
 fi
