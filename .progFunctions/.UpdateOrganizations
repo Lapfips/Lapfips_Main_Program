@@ -4,7 +4,7 @@ github="git@github.com:"
 repositories_org=(tstn1-23-24-g1/FARGIER-Ethan tstn2-24-25/FARGIER_Ethan ProjetLabo1405/demo-repository WikosS/PSTR)
 
 for repo in "${repositories_org[@]}"; do
-    echo "updating $repo"
+    echo "Updating $repo"
     repo_dir=$(echo "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions" | sed 's/\\/\//g' | sed 's/C:/\/c/')
     $repo_dir/.UpdateRepo "$repo" "$github" "$1"
 done

@@ -4,7 +4,7 @@ github="git@github.com:"
 repositories_optional=(moi Lapfips.github.io PortoBlogProjectMetallica lapfips.github.io2)
 
 for repo in "${repositories_optional[@]}"; do
-    echo "updating $repo"
+    echo "Updating $repo"
     repo_dir=$(echo "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions" | sed 's/\\/\//g' | sed 's/C:/\/c/')
     $repo_dir/.UpdateRepo "Lapfips/$repo" "$github" "$1"
 done
