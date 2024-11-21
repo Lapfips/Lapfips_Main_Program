@@ -49,7 +49,6 @@ cd Lapfips_Main_Program chmod +x program
 
 ### Global Options
 
-<div sytle="backgroud-color: white">
 | Command  | Description                                      |
 | -------- | ------------------------------------------------ |
 | `-upt`   | Update repositories, packages, or other systems. |
@@ -59,7 +58,7 @@ cd Lapfips_Main_Program chmod +x program
 | `-rm`    | Remove an existing repository or file.           |
 | `-open`  | Open files or repositories.                      |
 | `-help`  | Display help for commands or options.            |
-</div>
+
 ## Detailed Command Options
 
 ### `-upt`
