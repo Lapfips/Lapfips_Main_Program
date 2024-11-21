@@ -19,6 +19,8 @@ if [[ -n $(git status --porcelain) ]]; then
     git add .
     if [[ $MESS != "auto" ]]; then
         read -p "Your commit message for $repo_name repository : " MESS
+    else
+        MESS = "Automatic commit message"
     fi
     git commit -m "$MESS"
     git push
