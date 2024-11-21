@@ -4,14 +4,14 @@
 
 ## Table of Contents
 
-1. Features
-2. Installation
-3. Usage
-   - Global Options
-   - Detailed Command Options
-4. Examples
-5. Contributing
-6. License
+1. [Features](#features)
+2. [Installation](#installation)
+3. [Usage](#usage)
+   - [Global Options](#global-options)
+   - [Detailed Command Options](#detailed-command-options)
+4. [Examples](#examples)
+5. [Contributing](#contributing)
+6. [License](#license)
 
 ## Features
 
