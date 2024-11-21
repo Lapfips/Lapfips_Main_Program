@@ -35,7 +35,7 @@ repo_dir=$(echo "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunction
 
 if [[ -f "$repo_dir/.Update$FUNC" ]]; then
     echo
-    bash "$repo_dir/.Update$FUNC"
+    bash "$repo_dir/.Update$FUNC" "$2"
 else
     echo -e "\nFunction script $repo_dir/.Update$FUNC not found."
     exit 1

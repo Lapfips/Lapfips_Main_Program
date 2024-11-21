@@ -6,5 +6,5 @@ repositories_personal=(Code_perso_Ethan NewPcConfig LapBot Lapfips_Main_Program)
 for repo in "${repositories_personal[@]}"; do
     echo "updating $repo"
     repo_dir=$(echo "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions" | sed 's/\\/\//g' | sed 's/C:/\/c/')
-    $repo_dir/.UpdateRepo "Lapfips/$repo" "$github"
+    $repo_dir/.UpdateRepo "Lapfips/$repo" "$github" "$1"
 done

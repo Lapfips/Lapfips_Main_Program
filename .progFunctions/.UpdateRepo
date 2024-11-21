@@ -4,7 +4,7 @@ cd GitRepositories/
 
 repo_path=$1
 repo_url=$2
-mess=$3
+MESS=$3
 repo_name=$(basename "$repo_path")
 
 if [[ ! -d $repo_name ]]; then
@@ -17,9 +17,11 @@ git pull
 
 if [[ -n $(git status --porcelain) ]]; then
     git add .
-    if [[ -z $3 ]]; then
+    echo $MESS
+    if [[ $MESS != "auto" ]]; then
         read -p "Your commit message for $repo_name repository : " MESS
     fi
+    echo $MESS
     git commit -m "$MESS"
     git push
 fi

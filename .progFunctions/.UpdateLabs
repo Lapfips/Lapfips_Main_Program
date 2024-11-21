@@ -6,5 +6,5 @@ repositories_lab=(ProjetLabo1405 Projet_Labo_Dev)
 for repo in "${repositories_lab[@]}"; do
     echo "updating $repo"
     repo_dir=$(echo "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions" | sed 's/\\/\//g' | sed 's/C:/\/c/')
-    $repo_dir/.UpdateRepo "Lapfips/$repo" "$github"
+    $repo_dir/.UpdateRepo "Lapfips/$repo" "$github" "$1"
 done
