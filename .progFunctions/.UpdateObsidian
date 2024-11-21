@@ -10,7 +10,7 @@ if [[ -d "$repo_dir" ]]; then
     fi
     rm -rf "$repo_exit"*
     cp -r "$repo_dir"* "$repo_exit"
-    $repo_update/.UpdatePersonals
+    $repo_update/.UpdateRepo Code_perso_Ethan
 else
     echo "No such repo for obsidian"
 fi
