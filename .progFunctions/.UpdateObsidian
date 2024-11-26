@@ -1,20 +1,6 @@
 #!/bin/bash
 
-OS_TYPE=$(uname -s)
-
-if [[ "$OS_TYPE" == "Linux" ]]; then
-    repo_dir="$HOME/GitRepositories/Lapfips_Main_Program/.progFunctions"
-elif [[ "$OS_TYPE" == "Darwin" ]]; then
-    repo_dir="$HOME/GitRepositories/Lapfips_Main_Program/.progFunctions"
-else
-    if [[ -n "$USERPROFILE" ]]; then
-        repo_dir=$(cygpath -u "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions")
-    else
-        echo -e "\nUnable to determine the Windows user profile."
-        exit 1
-    fi
-fi
-
+repo_dir=$(echo "$USERPROFILE\Documents\Obsidian Vault" | sed 's/\\/\//g' | sed 's/C:/\/c/')
 repo_exit=$(echo "$USERPROFILE/GitRepositories/Code_Perso_Ethan/Obsidian/" | sed 's/\\/\//g' | sed 's/C:/\/c/')
 repo_update=$(echo "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions" | sed 's/\\/\//g' | sed 's/C:/\/c/')
 
