@@ -1,6 +1,20 @@
 #!/bin/bash
 
-repo_dir="$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions"
+OS_TYPE=$(uname -s)
+
+if [[ "$OS_TYPE" == "Linux" ]]; then
+    repo_dir="$HOME/GitRepositories/Lapfips_Main_Program/.progFunctions"
+elif [[ "$OS_TYPE" == "Darwin" ]]; then
+    repo_dir="$HOME/GitRepositories/Lapfips_Main_Program/.progFunctions"
+else
+    if [[ -n "$USERPROFILE" ]]; then
+        repo_dir=$(cygpath -u "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions")
+    else
+        echo -e "\nUnable to determine the Windows user profile."
+        exit 1
+    fi
+fi
+
 repo_file_lab="$repo_dir/.UpdateLabs"
 repo_file_org="$repo_dir/.UpdateOrganizations"
 repo_file_optional="$repo_dir/.UpdateOptionals"

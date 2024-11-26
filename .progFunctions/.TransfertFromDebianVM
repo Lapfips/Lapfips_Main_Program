@@ -17,6 +17,19 @@ else
     TYPE="f"
 fi
 
-repo_dir="$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions"
+OS_TYPE=$(uname -s)
+
+if [[ "$OS_TYPE" == "Linux" ]]; then
+    repo_dir="$HOME/GitRepositories/Lapfips_Main_Program/.progFunctions/.$FUNC"
+elif [[ "$OS_TYPE" == "Darwin" ]]; then
+    repo_dir="$HOME/GitRepositories/Lapfips_Main_Program/.progFunctions/.$FUNC"
+else
+    if [[ -n "$USERPROFILE" ]]; then
+        repo_dir=$(cygpath -u "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.$FUNC")
+    else
+        echo -e "\nUnable to determine the Windows user profile."
+        exit 1
+    fi
+fi
 
 ./$repo_dir/.Transfert $TYPE user 192.168.145.139 "/home/user/$VM" "$USERPROFILE/$LOC"

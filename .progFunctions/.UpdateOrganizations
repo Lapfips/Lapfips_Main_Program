@@ -1,10 +1,24 @@
 #!/bin/bash
 
+OS_TYPE=$(uname -s)
+
+if [[ "$OS_TYPE" == "Linux" ]]; then
+    repo_dir="$HOME/GitRepositories/Lapfips_Main_Program/.progFunctions"
+elif [[ "$OS_TYPE" == "Darwin" ]]; then
+    repo_dir="$HOME/GitRepositories/Lapfips_Main_Program/.progFunctions"
+else
+    if [[ -n "$USERPROFILE" ]]; then
+        repo_dir=$(cygpath -u "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions")
+    else
+        echo -e "\nUnable to determine the Windows user profile."
+        exit 1
+    fi
+fi
+
 github="git@github.com:"
 repositories_org=(tstn1-23-24-g1/FARGIER-Ethan tstn2-24-25/FARGIER_Ethan ProjetLabo1405/demo-repository WikosS/PSTR)
 
 for repo in "${repositories_org[@]}"; do
     echo "Updating $repo"
-    repo_dir=$(echo "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions" | sed 's/\\/\//g' | sed 's/C:/\/c/')
     $repo_dir/.UpdateRepo "$repo" "$github" "$1"
 done

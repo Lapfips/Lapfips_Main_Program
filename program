@@ -24,7 +24,20 @@ case $FUNC in
         ;;
 esac
 
-function_path=$(cygpath -u "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.$FUNC")
+OS_TYPE=$(uname -s)
+
+if [[ "$OS_TYPE" == "Linux" ]]; then
+    function_path="$HOME/GitRepositories/Lapfips_Main_Program/.progFunctions/.$FUNC"
+elif [[ "$OS_TYPE" == "Darwin" ]]; then
+    function_path="$HOME/GitRepositories/Lapfips_Main_Program/.progFunctions/.$FUNC"
+else
+    if [[ -n "$USERPROFILE" ]]; then
+        function_path=$(cygpath -u "$USERPROFILE/GitRepositories/Lapfips_Main_Program/.progFunctions/.$FUNC")
+    else
+        echo -e "\nUnable to determine the Windows user profile."
+        exit 1
+    fi
+fi
 
 if [[ -f "$function_path" ]]; then
     bash "$function_path" $2 $3 $4 $5 $6 $7 $8 $9
