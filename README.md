@@ -36,7 +36,8 @@ Clone the repository:
 
 ```shell
 git clone https://github.com/Lapfips/Lapfips_Main_Program.git
-cd Lapfips_Main_Program chmod +x program
+cd Lapfips_Main_Program
+chmod +x program
 ```
 
 ## Usage
