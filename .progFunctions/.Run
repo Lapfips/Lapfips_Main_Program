@@ -1,0 +1,225 @@
+#!/bin/bash
+
+install_dependencies() {
+    case "$1" in
+        "awk")
+            echo "Installing awk..."
+            if ! dpkg -l | grep -q "gawk"; then
+                sudo apt install -y gawk
+            else
+                echo "gawk is already installed."
+            fi
+            ;;
+        "sh")
+            echo "Bash does not require installation."
+            ;;
+        "c")
+            echo "Installing C compiler..."
+            if ! dpkg -l | grep -q "build-essential"; then
+                sudo apt install -y build-essential
+            else
+                echo "build-essential is already installed."
+            fi
+            ;;
+        "cpp")
+            echo "Installing C++ compiler..."
+            if ! dpkg -l | grep -q "g++"; then
+                sudo apt install -y g++
+            else
+                echo "g++ is already installed."
+            fi
+            ;;
+        "css")
+            echo "CSS does not require installation."
+            ;;
+        "go")
+            echo "Installing Go..."
+            if ! dpkg -l | grep -q "golang"; then
+                sudo apt install -y golang
+            else
+                echo "Go is already installed."
+            fi
+            ;;
+        "html")
+            echo "HTML does not require installation."
+            ;;
+        "java")
+            echo "Installing Java..."
+            if ! dpkg -l | grep -q "default-jdk"; then
+                sudo apt install -y default-jdk
+            else
+                echo "Java is already installed."
+            fi
+            ;;
+        "js")
+            echo "Installing Node.js (for JavaScript)..."
+            if ! dpkg -l | grep -q "nodejs"; then
+                sudo apt install -y nodejs
+            else
+                echo "Node.js is already installed."
+            fi
+            ;;
+        "perl")
+            echo "Installing Perl..."
+            if ! dpkg -l | grep -q "perl"; then
+                sudo apt install -y perl
+            else
+                echo "Perl is already installed."
+            fi
+            ;;
+        "php")
+            echo "Installing PHP..."
+            if ! dpkg -l | grep -q "php"; then
+                sudo apt install -y php
+            else
+                echo "PHP is already installed."
+            fi
+            ;;
+        "powershell")
+            echo "Installing PowerShell..."
+            if ! dpkg -l | grep -q "powershell"; then
+                sudo apt install -y powershell
+            else
+                echo "PowerShell is already installed."
+            fi
+            ;;
+        "py")
+            echo "Installing Python..."
+            if ! dpkg -l | grep -q "python3"; then
+                sudo apt install -y python3
+            else
+                echo "Python is already installed."
+            fi
+            ;;
+        "qt")
+            echo "Installing Qt..."
+            if ! dpkg -l | grep -q "qt5-qmake"; then
+                sudo apt install -y qt5-qmake qtbase5-dev
+            else
+                echo "Qt is already installed."
+            fi
+            ;;
+        "ruby")
+            echo "Installing Ruby..."
+            if ! dpkg -l | grep -q "ruby"; then
+                sudo apt install -y ruby
+            else
+                echo "Ruby is already installed."
+            fi
+            ;;
+        "rust")
+            echo "Installing Rust..."
+            if ! dpkg -l | grep -q "rustc"; then
+                sudo apt install -y rustc
+            else
+                echo "Rust is already installed."
+            fi
+            ;;
+        "sql")
+            echo "SQL does not require installation."
+            ;;
+        "swift")
+            echo "Installing Swift..."
+            if ! dpkg -l | grep -q "swift"; then
+                sudo apt install -y swift
+            else
+                echo "Swift is already installed."
+            fi
+            ;;
+        "typescript")
+            echo "Installing TypeScript..."
+            if ! command -v npm &> /dev/null; then
+                echo "npm not found, installing Node.js..."
+                sudo apt install -y nodejs npm
+            fi
+            if ! npm list -g | grep -q "typescript"; then
+                sudo npm install -g typescript
+            else
+                echo "TypeScript is already installed."
+            fi
+            ;;
+        *)
+            echo "No specific installation needed for this language."
+            ;;
+    esac
+}
+
+install_all_dependencies() {
+    local languages=("awk" "bash" "c" "cpp" "css" "go" "html" "java" "javascript" "perl" "php" "powershell" "python" "qt" "ruby" "rust" "sql" "swift" "typescript")
+
+    for lang in "${languages[@]}"; do
+        install_dependencies "$lang"
+    done
+}
+
+run_file() {
+    local file="$1"
+    local extension="${file##*.}"
+
+    install_dependencies "$extension"
+
+    case "$extension" in
+        "awk")
+            awk -f "$file"
+            ;;
+        "sh")
+            bash "$file"
+            ;;
+        "c" | "cpp")
+            gcc "$file" -o "${file%.*}" && ./"${file%.*}"
+            ;;
+        "go")
+            go run "$file"
+            ;;
+        "html")
+            echo "Open the HTML file in a browser."
+            ;;
+        "java")
+            javac "$file" && java "${file%.*}"
+            ;;
+        "js")
+            node "$file"
+            ;;
+        "perl")
+            perl "$file"
+            ;;
+        "php")
+            php "$file"
+            ;;
+        "powershell")
+            pwsh "$file"
+            ;;
+        "py")
+            python3 "$file"
+            ;;
+        "qt")
+            qmake "$file" && make
+            ;;
+        "ruby")
+            ruby "$file"
+            ;;
+        "rust")
+            rustc "$file" && ./"${file%.*}"
+            ;;
+        "swift")
+            swift "$file"
+            ;;
+        "typescript")
+            tsc "$file" && node "${file%.*}.js"
+            ;;
+        *)
+            echo "Unsupported file extension: $extension"
+            ;;
+    esac
+}
+
+if [[ "$1" == "-install" ]]; then
+    echo "Installing all dependencies..."
+    install_all_dependencies
+elif [[ -z "$1" ]]; then
+    echo "Please provide a file to run or use -install to install all dependencies."
+    exit 1
+else
+    run_file "$1"
+fi
+
