@@ -222,4 +222,3 @@ elif [[ -z "$1" ]]; then
 else
     run_file "$1"
 fi
-
