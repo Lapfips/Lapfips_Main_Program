@@ -21,6 +21,7 @@ The program supports the following functionalities:
 - **File Transfers** (-trf, -trfVM)
 - **Repository Management** (-add, -rm)
 - **File or Repository Opening** (-open)
+- **Run a program with his dependencies** (-run)
 - **Help Display** (-help)
 
 Each command is accompanied by its specific set of options to tailor its behavior.
