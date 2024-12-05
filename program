@@ -16,7 +16,7 @@ case $FUNC in
     -open) FUNC="OpenFiles" ;;
     -run) FUNC="Run" ;;
     -help) 
-        echo -e "\nChoose a parameter between :\n\n-upt    ->  update repositories\n-trf    ->  transfert from a VM to your current device\n-trfVM  ->  transfert from Lapfips' VM to your current device\n-add    ->  add a new repository to update\n-rm     ->  remove a repository from update\n-run     ->  run a program without needed to install the dependensies\n-open   ->  open every file in the current folder"
+        echo -e "\nChoose a parameter between :\n\n-upt    ->  update repositories\n-trf    ->  transfert from a VM to your current device\n-trfVM  ->  transfert from Lapfips' VM to your current device\n-add    ->  add a new repository to update\n-rm     ->  remove a repository from update\n-run    ->  run a program without needed to install the dependensies\n-open   ->  open every file in the current folder"
         exit 0
         ;;
     *) 
