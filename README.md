@@ -169,6 +169,12 @@ Open repositories or files. Example syntax:
 ./program -open file_name
 ```
 
+## Contriburors
+
+- Lapfips (Ethan FARGIER)
+- Lapgirl (Valentine REVERTE)
+- Layann (DevJoanaBureth)
+
 ## Contributing
 
 We welcome contributions! Please follow these steps:
