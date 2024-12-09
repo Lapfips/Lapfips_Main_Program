@@ -71,15 +71,15 @@ Manage updates. Example syntax:
 ./program -upt [options]
 ```
 
-| Option  | Description                      |
-| ------- | -------------------------------- |
-| `-a`    | Update all components.           |
-| `-p`    | Update packages.                 |
-| `-o`    | Update operating system.         |
-| `-l`    | Update logs.                     |
-| `-op`   | Update optional dependencies.    |
-| `-ob`   | Update the backup system.        |
-| `-help` | Display help specific to `-upt`. |
+| Option  | Description                         |
+| ------- | ----------------------------------- |
+| `-a`    | Update all components.              |
+| `-p`    | Update personnal repositories.      |
+| `-o`    | Update organizational repositories. |
+| `-l`    | Update laboratory repositories.     |
+| `-op`   | Update optional repositories.       |
+| `-ob`   | Update obsidian save.               |
+| `-help` | Display help specific to `-upt`.    |
 
 ### `-trf`
 
@@ -103,11 +103,10 @@ Add a repository or file. Example syntax:
 
 | Option  | Description                                    |
 | ------- | ---------------------------------------------- |
-| `-p`    | Add a personal repository or file.             |
-| `-o`    | Add an organizational repository or file.      |
-| `-op`   | Add an optional repository or file.            |
-| `-l`    | Add logs for repositories or files.            |
-| `auto`  | Automatically commit without a message.        |
+| `-p`    | Add a personal repository.                     |
+| `-o`    | Add an organizational repository.              |
+| `-op`   | Add an optional repository.                    |
+| `-l`    | Add a laboratory repository.                   |
 | `-help` | Display help for adding files or repositories. |
 
 ### `-rm`
@@ -120,10 +119,10 @@ Remove repositories or files. Example syntax:
 
 | Option  | Description                                      |
 | ------- | ------------------------------------------------ |
-| `-p`    | Remove a personal repository or file.            |
-| `-o`    | Remove an organizational repository or file.     |
-| `-op`   | Remove an optional repository or file.           |
-| `-l`    | Remove logs for repositories or files.           |
+| `-p`    | Remove a personal repository.                    |
+| `-o`    | Remove an organizational repository.             |
+| `-op`   | Remove an optional repository.                   |
+| `-l`    | Remove a laboratory repository.                  |
 | `-help` | Display help for removing files or repositories. |
 
 ### `-open`
@@ -155,19 +154,19 @@ Open repositories or files. Example syntax:
 ### Add a New Repository with Auto-Commit
 
 ```shell
-./program -add auto my_repo
+./program -add -category my_repo
 ```
 
 ### Remove a File
 
 ```shell
-./program -rm -o my_file
+./program -rm -category my_repo
 ```
 
 ### Open a Repository
 
 ```shell
-./program -open
+./program -open file_name
 ```
 
 ## Contributing
