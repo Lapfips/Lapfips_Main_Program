@@ -75,14 +75,6 @@ install_dependencies() {
                 echo "PHP is already installed."
             fi
             ;;
-        "powershell")
-            echo "Installing PowerShell..."
-            if ! dpkg -l | grep -q "powershell"; then
-                sudo apt install -y powershell
-            else
-                echo "PowerShell is already installed."
-            fi
-            ;;
         "py")
             echo "Installing Python..."
             if ! dpkg -l | grep -q "python3"; then
@@ -145,7 +137,7 @@ install_dependencies() {
 }
 
 install_all_dependencies() {
-    local languages=("awk" "bash" "c" "cpp" "css" "go" "html" "java" "javascript" "perl" "php" "powershell" "python" "qt" "ruby" "rust" "sql" "swift" "typescript")
+    local languages=("awk" "bash" "c" "cpp" "css" "go" "html" "java" "javascript" "perl" "php" "python" "qt" "ruby" "rust" "sql" "swift" "typescript")
 
     for lang in "${languages[@]}"; do
         install_dependencies "$lang"
@@ -185,9 +177,6 @@ run_file() {
             ;;
         "php")
             php "$file"
-            ;;
-        "powershell")
-            pwsh "$file"
             ;;
         "py")
             python3 "$file"

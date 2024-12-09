@@ -173,7 +173,7 @@ Open repositories or files. Example syntax:
 
 - Lapfips (Ethan FARGIER)
 - Lapgirl (Valentine REVERTE)
-- Layann (DevJoanaBureth)
+- Layann (Joana BURETH)
 
 ## Contributing
 
