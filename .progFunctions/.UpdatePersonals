@@ -16,7 +16,7 @@ else
 fi
 
 github="git@github.com:"
-repositories_personal=(Code_perso_Ethan NewPcConfig LapBot Lapfips_Main_Program)
+repositories_personal=(Code_perso_Ethan NewPcConfig LapBot Lapfips_Main_Program Repository_Manager)
 
 for repo in "${repositories_personal[@]}"; do
     echo "Updating $repo"
