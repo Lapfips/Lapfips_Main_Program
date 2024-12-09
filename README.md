@@ -179,6 +179,12 @@ We welcome contributions! Please follow these steps:
 4. Push to the branch: `git push origin feature/your-feature-name`.
 5. Submit a pull request.
 
+## ToDo:
+
+- Implement my ToDo feature
+- Create a .env file with the path and informations needed
+- Create a .gitignore file
+
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
