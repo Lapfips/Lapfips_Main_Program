@@ -22,7 +22,7 @@ if [[ -n $(git status --porcelain) ]]; then
     else
         MESS="Automatic commit message"
     fi
-    git commit -m "Update $MESS"
+    git commit -m "$MESS"
     git push
 fi
 
