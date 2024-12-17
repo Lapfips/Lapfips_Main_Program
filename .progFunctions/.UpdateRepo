@@ -4,7 +4,6 @@ cd GitRepositories/
 
 repo_path=$1
 repo_url=$2
-MESS=$3
 repo_name=$(basename "$repo_path")
 
 if [[ ! -d $repo_name ]]; then
@@ -17,10 +16,15 @@ git pull
 
 if [[ -n $(git status --porcelain) ]]; then
     git add .
-    if [[ $MESS != "auto" ]]; then
-        read -p "Your commit message for $repo_name repository : " MESS
+    if [[ $3 != "" ]]; then
+        if [[ $3 == "auto" ]]; then
+            MESS="Automatic commit message"
+        else
+            echo "This is $3"
+            MESS="$3"
+        fi
     else
-        MESS="Automatic commit message"
+        read -p "Your commit message for $repo_name repository : " MESS
     fi
     git commit -m "$MESS"
     git push
