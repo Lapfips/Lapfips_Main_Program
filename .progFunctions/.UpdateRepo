@@ -20,7 +20,7 @@ if [[ -n $(git status --porcelain) ]]; then
         if [[ $3 == "auto" ]]; then
             MESS="Automatic commit message"
         else
-            echo "This is $3"
+            echo "This is your commit message : $3"
             MESS="$3"
         fi
     else
