@@ -15,7 +15,6 @@ else
     fi
 fi
 
-$repo_dir/.UpdateObsidian $1
 $repo_dir/.UpdatePersonals $1
 $repo_dir/.UpdateOrganizations $1
 $repo_dir/.UpdateOptionals $1
