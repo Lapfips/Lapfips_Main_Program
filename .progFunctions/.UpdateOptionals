@@ -16,7 +16,7 @@ else
 fi
 
 github="git@github.com:"
-repositories_optional=(moi Lapfips.github.io PortoBlogProjectMetallica.github.io2)
+repositories_optional=(Lapfips.github.io PortoBlogProject Metallica.github.io2)
 
 for repo in "${repositories_optional[@]}"; do
     echo "Updating $repo"
