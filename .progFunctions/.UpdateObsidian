@@ -9,7 +9,9 @@ if [[ -d "$repo_dir" ]]; then
         mkdir -p "$repo_exit"
     fi
     cp -r "$repo_dir"* "$repo_exit"
+    echo "Updating Obsidian database"
     $repo_update/.UpdateRepo Public_Knowledge_Database "git@github.com:" $1
+    cp -r "$repo_exit"* "$repo_dir"
 else
     echo "No such repo for obsidian"
 fi
