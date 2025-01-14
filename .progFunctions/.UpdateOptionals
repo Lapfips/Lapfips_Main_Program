@@ -16,7 +16,7 @@ else
 fi
 
 github="git@github.com:"
-repositories_optional=( Lapfips.github.io )
+repositories_optional=(Lapfips.github.io)
 
 for repo in "${repositories_optional[@]}"; do
     echo "Updating $repo"
