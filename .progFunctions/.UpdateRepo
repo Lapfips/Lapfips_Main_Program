@@ -12,6 +12,7 @@ fi
 
 cd "$repo_name" || exit
 
+echo "je suis ici $(pwd)"
 git pull
 
 if [[ -n $(git status --porcelain) ]]; then
